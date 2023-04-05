@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<!--
+
+# Projet Motus
+## Introduction
+Le projet a été réalisé par Baptiste COQUELET et Thomas JAKUBOWSKI.
+## Fonctionnalités
+
+Voici ci dessous la liste des fonctionnalités implementé et fonctionnel :
+- Jeux de motus
+-- Vérification des valeur rentré (qu'il n'y ait que des lettres)
+-- Affichage des résultat et de l'historiques par modal
+-- Stockage de l'historique avec cookie
+-- Stockage de l'historique avec localstorage
+-- Possibilité de supprimer l'historique
+-- Possibilité d'abandonner la partie
+-- Possibilité d'enchainer les parties
+-- Fait les son de motus
+
+## Tutoriel
+
+- Pour lancer une nouvelle partie appuyer sur le bouton "Nouvelle partie"
+- Pour Abandonner appuyer sur le bouton "Abandonner"
+- Pour voir l'historique des parties survoller le bouton "Historique"
+-- Pour voir l'historique dans le cookie appuyer sur le bouton "Afficher Resultat Cookie"
+-- Pour voir l'historique stocker dans le LocalStorage appuyer sur le bouton "Afficher Resultat LocalStorage"
+-- Pour effacer l'historique appuyer sur le bouton "Supprimer l'Historique"
+- Pour "tricher" en optenant le mot de la partie survoller le bouton "optenir la réponse" avec la souris
+
+Lorsque qu'une partie est lancer rentrer les lettres du mot que vous souaiter écrire dans l'input sur le tableau. 
+
+-->
+<head>
+  <link rel="stylesheet" href="style.css" />
+ 
+  <script type="text/javascript" src="words.js"></script>
+  <script type="text/javascript" src="modal.js"></script>
+  <script type="text/javascript" src="cookie.js"></script>
+  <script type="text/javascript" src="localstorage.js"></script>
+</head>
+
+<body>
+
+
+  <section id="Jeu Motus">
+    <h2>Jeu Motus</h2>
+
+
+
+
+    <div id="buttonZone">
+    
+      <div class="dropdown">
+        <input type="button" id="newGameButton" class="dropbtn" onclick="startGame()" value="Nouvelle partie"></input>
+      </div>
+      <div class="dropdown">
+        <input type="button" disabled id="loseButton" class="dropbtn" onclick="endGame(2,'abandonner')"
+          value="Abandonner"></input>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Historique</button>
+        <div class="dropdown-content">
+          <a class="abase" onclick="cookie_displayResult()">Afficher Resultat Cookie</a>
+          <a class="abase" onclick="localstorage_displayResult()">Afficher Resultat LocalStorage</a>
+          <a class="abase" onclick="deleteCookie();deleteLocalStorage();">Supprimer l'Historique</a>
+
+        </div>
+      </div>
+      <div class="dropdown">
+        <button id="cheatResultButton" class="dropbtn">Obtenir la reponse</button>
+        <div class="dropdown-content">
+          <a id="cheatResult">Appuyer sur le bouton pour connetre la reponse</a>
+        </div>
+      </div>
+
+    </div>
+    <div id="gameContainer">
+
+    </div>
+
+
+  </section>
+
+  <!-- The Modal -->
+  <div id="ModalEnd" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+
+      <div id="textEndModal">Donnée non charger</div>
+    </div>
+  </div>
+
+
+  <div id="ModalResult" class="modal">
+    <div id="ModalContentResult" class="modal-content">
+
+      <div id="resultZone">
+
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <h6>Copyright © Baptiste COQUELET Thomas JAKUBOWSKI 2023</h6>
+  </footer>
+  <script type="text/javascript" src="motus.js"></script>
+</body>
+
+</html>
